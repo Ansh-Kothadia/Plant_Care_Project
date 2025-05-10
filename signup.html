@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins', sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            margin-top: 8%;
+            justify-content: center;
+            justify-items: center;
+            min-height: 100vh;
+            background: url(premium_photo-1676654935937-109c7936b8ff.jpeg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .container{
+            width: 710px;
+            background: transparent;
+            color: #fff;
+            border-radius: 10px;
+            padding: 30px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(3px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+        }
+        #signup h3 {
+            all: unset; /* <- resets any Bootstrap styling */
+            display: block; /* <- restore necessary styles after 'all: unset' */
+            text-align: center;
+            padding: 10px 10px;
+            font-size: 36px !important;
+            color: black;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .container .input-box {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 30px 0;
+            /* text-align: center; */
+            
+            
+        }
+        .input-box input{
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            font-size: 16px;
+            /* color: aliceblue; */
+            color: black;
+            padding: 20px 45px 20px 20px;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(0, 0, 0, 0.379);
+            /* border: 2px solid black ; */
+            border-radius: 40px;
+        }
+        .input-box textarea{
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            font-size: 16px;
+            /* color: aliceblue; */
+            color: black;
+            padding: 20px 45px 20px 20px;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(0, 0, 0, 0.379);
+            border-radius: 40px;
+        }
+        .input-box input::placeholder{
+            /* color: rgb(255, 255, 255); */
+            color: black;
+        }
+        .input-box textarea::placeholder{
+            /* color: rgb(255, 255, 255); */
+            color: black;
+        }
+        .input-box i{
+            /* color: aliceblue; */
+            color: black;
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            transform: translateY(-50%);
+            font-size: 20px;
+        }
+        .container .termsandconditions{
+            /* text-align: right; */
+            /* padding-right: 80px; */
+            /* padding: 10px 70px; */
+            color: black;
+            display: flex;
+            justify-content: center;
+            font-size: 14.5px;
+            margin: -15px 0 15px;
+            /* padding-left: 70px; */
+        }
+        /*.container .forget a{
+            text-decoration: none;
+            color: aliceblue;
+        }
+        .container .forget a:hover{
+            text-decoration: underline;
+            color: aliceblue;
+        }*/
+        .container .termsandconditions #tnc{
+            cursor: pointer;
+        }
+        .Button .btn{
+            /* text-align: center; */
+            /* padding: 10px 10px; */
+            width: 100%;
+            height: 45px;
+            /* background: aliceblue; */
+            background: black;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 16px;
+            /* color: #333; */
+            color: white;
+            font-weight: 600;
+        }
+        .Button :hover{
+            background: rgba(1, 1, 1, 0.699);
+            cursor: pointer;
+            /* color: aliceblue; */
+            color: white;
+            border-color: #fff;
+        }
+        .login{
+            font-size: 16px;
+            /* color: aliceblue; */
+            color: black;
+            text-align: center;
+            padding: 10px 10px;
+            margin: 20px 0 15px;
+        }
+        .login a{
+            font-size: 16px;
+            text-decoration: none;
+            /* color: aliceblue; */
+            color: black;
+            text-align: center;
+            padding: 10px 10px;
+        }
+        .login a:hover{
+            font-size: 16px;
+            text-decoration: underline;
+            /* color: aliceblue; */
+            color: darkslategrey;
+            text-align: center;
+            padding: 10px 10px;
+        }
+        .login p{
+            font-size: 16px;
+        }
+
+        @media (max-width:580px){
+            .container{
+                width:344px;
+            }
+        }
+
+        </style>
+</head>
+<body>
+    <form action="signup.php" method="post" id="myForm" name="signup" onsubmit="return validateForm()">
+        <div class="container">
+            <div id="signup">
+                <h3>Sign Up</h3>
+            </div>
+            <div class="input-box">
+                <input type="username" name="username" placeholder="username">
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="tel" name="contact" placeholder="Mobile Number">
+                <i class='bx bxs-phone'></i>
+            </div>
+            <div class="input-box">
+            <input type="email" name="email" placeholder="email">
+            <i class='bx bxs-envelope'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" name="password" placeholder="password">
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" name="confirmpassword" placeholder="confirm password">
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+        <!-- <div class="input-box">
+            <input type="date" name="myDOB" placeholder="Date Of Birth">
+            <i class='bx bxs-calendar'></i>
+        </div> -->
+        <div class="input-box">
+            <textarea name="address" id="" placeholder="address"></textarea>
+            <i class='bx bxs-map'></i>
+        </div>
+        <div class="termsandconditions">
+            <input type="checkbox" id="tnc" name="checkbox" value="Terms and Conditions">
+            <label for="tnc">I accept the Terms and Conditions</label>
+        </div>
+        <div class="Button">
+            <button type="submit" class="btn">Sign up</button>
+        </div>
+        <div class="login">
+            <p>Already have an account?<a href="login.php">Login</a></p>
+        </div>
+    </form>
+    </div>
+
+
+
+
+
+    <script>
+        function validateForm(){
+            let username=document.forms['signup']['username'].value;
+            if(username == "")
+            {
+                alert("Username is required !!!");
+                return false;
+            }
+            let contact=document.forms['signup']['contact'].value;
+            if(contact == "")
+            {
+                alert("Phone number is required !!!");
+                return false;
+            }
+
+
+            if(contact.length>10 || contact.length<10)
+            {
+                alert("Phone should be of 10 numbers");
+                return false;
+            }
+           
+
+            let password=document.forms['signup']['password'].value;
+            if(password == "")
+            {
+                alert("Password is required !!!");
+                return false;
+            }
+            if(password.length<8)
+            {
+                alert("Password should be of greater than 8 length");
+                return false;
+            }
+            let confirmpassword=document.forms['signup']['confirmpassword'].value;
+            if(confirmpassword == "")
+            {
+                alert("Confirm Password is required !!!");
+                return false;
+            }
+            if(password != confirmpassword)
+            {
+                alert("Password and Confirm Password is not matched !!!!");
+                return false;
+            }
+            let address=document.forms['signup']['address'].value;
+            if(address == "")
+            {
+                alert("Address is required !!!");
+                return false;
+            }
+            let checkbox=document.getElementById("tnc");
+            if(!checkbox.checked)
+            {
+                alert("You must accept the terms and conditions");
+                return false;
+            }
+           return true;
+        }
+    </script>
+
+
+
+</body>
+</html>
